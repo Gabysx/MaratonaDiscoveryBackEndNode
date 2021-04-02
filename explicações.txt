@@ -1,0 +1,12 @@
+ejs já ler por padão o basePath + views caso a pasta views estiver na pasta raiz 
+const basePath =  __dirname + "/views";
+
+
+ctrl + shift + L faz selecionar todas as palavras iguais do código ao mesmo tempo 
+
+
+filter -  Ele faz a comparação e tira do filtro a condição verdadeira 
+map - alteração dos elementos do array - porem sem eliminação - te devolve o mesmo numero de elementos do array
+find - vai procurar pela condição, caso não encontre ele vai avisar que não encontrou 
+forEach - faz o loop de repetição com os elementos dentro dele 
+optional chaining operator ?. 

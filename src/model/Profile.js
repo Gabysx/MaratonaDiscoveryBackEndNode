@@ -1,16 +1,31 @@
-//objeto do avatar/ usuarios
-const data = {
+//objeto do avatar/ usuarios / let aceita alteração de estado da váriavel
+let data = {
   name: "Gabysx",
   avatar: "https://github.com/gabysx.png",
   "monthly-budget": 3000,
-  "hours-per-day": 5, 
+  "hours-per-day": 5,
   "days-per-week": 5,
   "vacation-per-year": 4,
   "value-hour": 55,
 };
 
 module.exports = {
-  get(){
+  get() {
     return data;
+  },
+  update(newData) {
+    data = newData;
   }
 }
+
+// alt + shift + f   identa o código 
+// ctrl + y refaz o que vc já tinha feito 
+// shift+alt+a - comenta em bloco 
+//
+/*
+  organização de códigos 
+
+  m - trabalha com dados 
+  v - são o que mostra no front 
+  c - controla tudo 
+*/

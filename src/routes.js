@@ -4,55 +4,8 @@ const express = require("express");
 // Conexão como pacote de rotes 
 const routes = express.Router()
 
-//
-
-//objeto do avatar/ usuarios
-const profile = {
- data: {
-  name: "Gabysx",
-  avatar: "https://github.com/gabysx.png",
-  "monthly-budget": 3000,
-  "hours-per-day": 5, 
-  "days-per-week": 5,
-  "vacation-per-year": 4,
-  "value-hour": 55,
- },
-
- controllers: {
-   index(req, res) {
-    return res.render("profile", { profile: profile.data })
-   },
-
-   update(req, res) {
-
-    // req.body para pegar os dados 
-    const data = req.body
-
-    // definir quantas semanas tem um ano = 52
-    const weeksPerYear = 52
-
-    // remover as semanas de férias do ano, para pegar quantas semanas tem em um mês 
-    const weeksPerMonth = (weeksPerYear - data["vacation-per-year"]) / 12
-
-    // quantas horas por semana estou trabalhando
-    const weekTotalHours = data["hours-per-day"] * data["days-per-week"]
-
-    // Total de horas trabalhadas no mes 
-    const monthlyTotalHours = weekTotalHours * weeksPerMonth
-
-    //Qual vai ser o valor da minha hora 
-    const valueHour = data["monthly-budget"] / monthlyTotalHours
-
-    profile.data = {
-      ...profile.data,
-      ...req.body,
-      "value-hour": valueHour,
-    }
-
-    return res.redirect('/profile')
-   }
- }
-}
+//Importando o controller do objeto profile 
+const ProfileController = require('./controllers/ProfileController')
 
 const Job = {
   // referencia de como os dados ficariam como objetos no array { name: 'Gabriela Candido', 'daily-hours': '5', 'total-hours': '7' }
@@ -195,8 +148,8 @@ routes.get('/job/:id', Job.controllers.show)
 routes.post('/job/:id', Job.controllers.update)
 routes.post('/job/delete/:id', Job.controllers.delete)
 
-routes.get('/profile', profile.controllers.index)
-routes.post('/profile', profile.controllers.update)
+routes.get('/profile', ProfileController.index)
+routes.post('/profile', ProfileController.update)
 
 //jogar para fora com o 
 module.exports = routes;

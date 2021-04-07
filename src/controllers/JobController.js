@@ -62,8 +62,10 @@ module.exports = {
 
   update(req, res) {
     const jobId = req.params.id
+    const jobs = Job.get();
 
-    const job = Job.data.find(job => Number(job.id) === Number(jobId))
+
+    const job = jobs.find(job => Number(job.id) === Number(jobId))
 
     if (!job) {
       return res.send(' Job not found!')
@@ -76,7 +78,7 @@ module.exports = {
       "daily-hours": req.body["daily-hours"],
     }
 
-    Job.data = Job.data.map(job => {
+    jobs = jobs.map(job => {
       if (Number(job.id) === Number(jobId)) {
         job = updatedJob
       }
@@ -88,8 +90,9 @@ module.exports = {
 
   delete(req, res) {
     const jobId = req.params.id
+    const jobs = Job.get();
 
-    Job.data = Job.data.filter(job => Number(job.id) !== Number(jobId))
+    jobs = jobs.filter(job => Number(job.id) !== Number(jobId));
 
     return res.redirect('/')
 

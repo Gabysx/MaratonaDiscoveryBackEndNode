@@ -4,8 +4,7 @@ const express = require("express");
 // Conexão como pacote de rotes 
 const routes = express.Router()
 
-//variavel base para as rotas 
-const views = __dirname + "/views/";
+//
 
 //objeto do avatar/ usuarios
 const profile = {
@@ -21,7 +20,7 @@ const profile = {
 
  controllers: {
    index(req, res) {
-    return res.render(views + "profile", { profile: profile.data })
+    return res.render("profile", { profile: profile.data })
    },
 
    update(req, res) {
@@ -88,12 +87,12 @@ const Job = {
           }
         })
 
-        return res.render(views + "index", { jobs: updatedJobs });
+        return res.render("index", { jobs: updatedJobs });
 
     },
 
     create(req, res) {
-      return res.render(views + "job")
+      return res.render("job")
     },
 
     save(req, res) { 
@@ -123,7 +122,7 @@ const Job = {
 
         job.budget = Job.services.calculateBudget(job, profile.data["value-hour"])
     
-        return res.render(views + "job-edit", { job })
+        return res.render("job-edit", { job })
     },
 
     update(req, res) {

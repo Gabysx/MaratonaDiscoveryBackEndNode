@@ -10,7 +10,7 @@ const ProfileController = require('./controllers/ProfileController');
 // Importanto o controller do objeto job 
 const JobController = require('./controllers/JobController');
 
-//request(req), response
+//request(req), response(res)
 routes.get('/', JobController.index);
 
 routes.get('/job', JobController.create);

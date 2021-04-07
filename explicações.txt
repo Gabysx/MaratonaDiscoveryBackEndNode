@@ -10,3 +10,13 @@ map - alteração dos elementos do array - porem sem eliminação - te devolve o
 find - vai procurar pela condição, caso não encontre ele vai avisar que não encontrou 
 forEach - faz o loop de repetição com os elementos dentro dele 
 optional chaining operator ?. 
+
+
+ alt + shift + f   identa o código 
+ ctrl + y refaz o que vc já tinha feito 
+ shift+alt+a - comenta em bloco 
+  organização de códigos 
+
+  m - trabalha com dados 
+  v - são o que mostra no front 
+  c - controla tudo 

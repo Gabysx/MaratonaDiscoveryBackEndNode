@@ -44,15 +44,18 @@ module.exports = {
 
   show(req, res) {
     const jobId = req.params.id
+     const jobs = Job.get();
+     const profile = Profile.get();
 
-    const job = Job.data.find(job => Number(job.id) === Number(jobId))
+
+    const job = jobs.find(job => Number(job.id) === Number(jobId))
 
     if (!job) {
       return res.send('Job not found!')
 
     }
 
-    job.budget = Job.services.calculateBudget(job, profile.data["value-hour"])
+    job.budget = Job.services.calculateBudget(job, profile["value-hour"])
 
     return res.render("job-edit", { job })
   },

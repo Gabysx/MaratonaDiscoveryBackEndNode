@@ -7,7 +7,7 @@ const path = require("path")
 server.set('view engine', 'ejs')
 
 //Mudar a localização da pasta views
-server.set('viwes', path.join(__dirname, 'views'))
+server.set('views', path.join(__dirname, 'views'))
 
 // Habilitar aquivos estaticos
 server.use(express.static("public"))

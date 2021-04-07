@@ -18,14 +18,3 @@ module.exports = {
   }
 }
 
-// alt + shift + f   identa o código 
-// ctrl + y refaz o que vc já tinha feito 
-// shift+alt+a - comenta em bloco 
-//
-/*
-  organização de códigos 
-
-  m - trabalha com dados 
-  v - são o que mostra no front 
-  c - controla tudo 
-*/

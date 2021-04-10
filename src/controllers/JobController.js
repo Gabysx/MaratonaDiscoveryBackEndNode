@@ -1,5 +1,5 @@
 const Job = require('../model/Job');
-const JobUtils = require('../utilis/JobUtilis');
+const JobUtils = require('../utilis/JobUtils');
 const Profile = require('../model/Profile');
 
 

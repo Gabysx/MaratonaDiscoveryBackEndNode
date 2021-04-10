@@ -13,14 +13,15 @@ module.exports = {
     const lastId = jobs[jobs.length - 1] ? jobs[jobs.length - 1].id : 0
 
     // req.body = { name: 'Gabriela Candido', 'daily-hours': '5', 'total-hours': '7' }
-    jobs.push({
+    Job.create({
       id: lastId + 1,
       name: req.body.name,
       "daily-hours": req.body["daily-hours"],
       "total-hours": req.body["total-hours"],
       created_at: Date.now()// atribuindo uma nova data
 
-    })
+    });
+    
     return res.redirect('/')
   },
 

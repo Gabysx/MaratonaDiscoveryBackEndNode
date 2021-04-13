@@ -1,5 +1,3 @@
-const { update } = require("../controllers/JobController");
-
 let data = [
   {
     id:1,

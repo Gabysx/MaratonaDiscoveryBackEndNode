@@ -1,3 +1,8 @@
+// conexao com banco de dados
+const Database = require('../db/config');
+
+
+
 //objeto do avatar/ usuarios / let aceita alteração de estado da váriavel
 let data = {
   name: "Gabysx",
@@ -10,9 +15,16 @@ let data = {
 };
 
 module.exports = {
-  get() {
+  async get() {
+    const db = await Database();
+
+    db.run(``)
+
+    db.close();
+
     return data;
   },
+  
   update(newData) {
     data = newData;
   }

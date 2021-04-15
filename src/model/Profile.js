@@ -1,32 +1,39 @@
 // conexao com banco de dados
 const Database = require('../db/config');
 
-
-
-//objeto do avatar/ usuarios / let aceita alteração de estado da váriavel
-let data = {
-  name: "Gabysx",
-  avatar: "https://github.com/gabysx.png",
-  "monthly-budget": 3000,
-  "hours-per-day": 5,
-  "days-per-week": 5,
-  "vacation-per-year": 4,
-  "value-hour": 55,
-};
-
 module.exports = {
   async get() {
     const db = await Database();
 
-    db.run(``)
+    const data = await db.get(`SELECT * FROM profile`)
 
-    db.close();
+    await db.close();
 
-    return data;
+    return  {
+      name: data.name,
+      avatar: data.avatar,
+      "monthly-budget": data.monthly_budget,
+      "days-per-week": data.days_per_week,
+      "hours-per-day": data.hours_per_day,
+      "vacation-per-year": data.vacation_per_year,
+      "value-hour": data.value_hour,
+
+    };
   },
   
-  update(newData) {
-    data = newData;
+  async update(newData){
+    const db = await Database()
+   
+    db.run(`UPDATE profile SET name = "${newData.name}",
+    avatar = "${newData.avatar}",
+    monthly_budget = ${newData["monthly-budget"]},
+    days_per_week = ${newData["days-per-week"]},
+    hours_per_day = ${newData["hours-per-day"]},
+    vacation_per_year = ${newData["vacation-per-year"]},
+    value_hour = ${newData["value-hour"]}
+    `)
+
+    await db.close();
   }
 }
 
